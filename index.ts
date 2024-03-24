@@ -1,7 +1,11 @@
+import { CustomLogger } from './src/logger';
+
+const logger = new CustomLogger();
+
 export function info(message: string): void {
-  console.log(`[INFO]: ${message}`);
+  logger.log(`[INFO]: ${message}`);
 }
 
 export function error(message: string): void {
-  console.error(`[ERROR]: ${message}`);
+  logger.error(`[ERROR]: ${message}`, '');
 }

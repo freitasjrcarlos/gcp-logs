@@ -18,7 +18,6 @@ export interface LogContext {
 export class CustomLogger implements LoggerService {
   private logger = new Logger();
 
-  constructor(private serviceName: string) {}
 
   log(message: string) {
     this.logger.log(message);
@@ -33,7 +32,6 @@ export class CustomLogger implements LoggerService {
       ...context,
       context: {
         ...context.context,
-        category: this.serviceName,
       },
     };
     this.logger.warn(logMessage);
