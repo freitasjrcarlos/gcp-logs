@@ -28,7 +28,7 @@ yarn add gcp-logs
 
 ### Step 2: Configure your Main file
 
-```bash
+```typescript
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { configureLogger } from 'gcp-logs';
@@ -49,7 +49,7 @@ bootstrap();
 
 After installing the package, you need to import the LoggingModule provided by gcp-logs into your AppModule. The LoggingModule encapsulates the Winston logging configuration tailored for use with GCP. Here's an example of how to do it:
 
-```bash
+```typescript
 import { Module } from '@nestjs/common';
 import { LoggingModule } from 'gcp-logs'; // Import the LoggingModule from gcp-logs
 import { AppController } from './app.controller';
@@ -64,4 +64,53 @@ import { AppService } from './app.service';
   providers: [AppService],
 })
 export class AppModule {}
+```
+
+### Usage
+
+Here's an example of how to use the logger to log a normal operation:
+
+```typescript
+import { logger } from 'gcp-logs';
+
+logger.log({
+  requestId: 'y475647ry',
+  channel: 'notice',
+  message: 'User created in external service',
+  description: `User created`,
+  context: {
+    category: 'users.functions',
+    method: 'createUser',
+    type: 'api',
+  },
+  details: {
+    request: {
+      body: 'body',
+      url: '',
+      header: '',
+      method: 'POST',
+    },
+    response: { body: 'body', statuscode: 200 },
+  },
+});
+```
+
+```typescript
+logger.error({
+  requestId: 'y475647rz',
+  channel: 'exception',
+  message: 'Error creating user in database',
+  description: `Unexpected error to create user`,
+  context: {
+    accountability: 'internal',
+    category: 'users.repository',
+    method: 'createUser',
+    exception: new Error('Database error'),
+    errorMessage: 'Database error',
+    type: 'database'
+  },
+  details: {
+    // additional error information
+  }
+});
 ```
