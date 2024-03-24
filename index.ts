@@ -9,3 +9,7 @@ export function info(message: string): void {
 export function error(message: string): void {
   logger.error(`[ERROR]: ${message}`, '');
 }
+
+export { configureLogger } from './src/configureLogger';
+
+export { LoggingModule } from './src/logging.module';
