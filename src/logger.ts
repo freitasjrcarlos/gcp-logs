@@ -1,4 +1,5 @@
 import { LoggerService, Injectable, Logger } from '@nestjs/common';
+import { ErrorLogContext } from './interfaces/LoggerProps';
 
 export interface LogContext {
   requestId: string;
@@ -19,21 +20,15 @@ export class CustomLogger implements LoggerService {
   private logger = new Logger();
 
 
-  log(message: string) {
-    this.logger.log(message);
+  log(content: LogContext) {
+    this.logger.log(content);
   }
 
-  error(message: string, trace: string) {
-    this.logger.error(message, trace);
+  error(content: ErrorLogContext) {
+    this.logger.error(content);
   }
 
-  warn(context: LogContext) {
-    const logMessage = {
-      ...context,
-      context: {
-        ...context.context,
-      },
-    };
-    this.logger.warn(logMessage);
+  warn(content: LogContext) {
+    this.logger.warn(content);
   }
 }
