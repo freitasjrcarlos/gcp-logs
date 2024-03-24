@@ -29,14 +29,14 @@ yarn add gcp-logs
 ```typescript
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { configureLogger } from 'gcp-logs';
+import { initLogger } from 'gcp-logs'; // Import the initLogger from gcp-logs
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, {
     logger: ['error', 'warn', 'log', 'debug'],
   });
 
-  configureLogger(app);
+  initLogger(app); // Add initLogger to your main file imports
 
   // Your configs...
 }
