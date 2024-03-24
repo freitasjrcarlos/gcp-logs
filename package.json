@@ -1,7 +1,19 @@
 {
   "name": "gcp-logs",
-  "version": "1.2.1",
-  "description": "Package that standardizes logs for GCP",
+  "version": "1.2.2",
+  "description": "Package that standardizes logs for GCP, specifically for NestJS",
+  "keywords": [
+    "nestjs",
+    "gcp",
+    "logging",
+    "cloud-logging",
+    "google-cloud-platform",
+    "winston",
+    "logger",
+    "application-logging",
+    "cloud-services",
+    "nestjs-module"
+  ],
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
