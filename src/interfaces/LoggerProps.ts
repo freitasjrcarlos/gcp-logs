@@ -9,9 +9,9 @@ export interface ErrorLogContext {
     method: string;
     exception: Error;
     errorMessage: string;
-    type: string;
+    type?: string;
   };
-  details: Record<string, unknown>;
+  details?: Record<string, unknown>;
 }
 
 export interface LogContext {
@@ -22,9 +22,9 @@ export interface LogContext {
   context: {
     category: string;
     method: string;
-    type: string;
+    type?: string;
   };
-  details: {
+  details?: {
     request: {
       url: string;
       header: any;
