@@ -24,16 +24,5 @@ export interface LogContext {
     method: string;
     type?: string;
   };
-  details?: {
-    request: {
-      url: string;
-      header: any;
-      body: any;
-      method: string;
-    };
-    response: {
-      body: any;
-      statuscode: number;
-    };
-  };
+  details?: Record<string, unknown>;
 }
