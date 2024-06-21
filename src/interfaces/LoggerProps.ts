@@ -1,7 +1,7 @@
 export interface ErrorLogContext {
   requestId: string;
   channel: string;
-  message: string;
+  message?: string;
   description: string;
   context: {
     accountability: string;
@@ -17,7 +17,7 @@ export interface ErrorLogContext {
 export interface LogContext {
   requestId: string;
   channel: string;
-  message: string;
+  message?: string;
   description: string;
   context: {
     category: string;
